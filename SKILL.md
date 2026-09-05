@@ -60,10 +60,19 @@ o bir sezgidir ve sezgi kaydedilmez, tahmin kaydedilir.
 TAHMIN     <tek cumle, gozlenebilir sonuc>
 GUVEN      dusuk / orta / yuksek        <- kalibrasyon icin zorunlu
 DAYANAK    neye bakarak? (dosya, olcum, desen -- "sezgi" MESRU ama YAZILIR)
+           dis kaynaksa GUVENILIRLIK notu: hakemli mi, orneklem ne, kim yazdi
 YANLISLAR  bu tahmin neyle CURUR? tek cumle
 ELENEN     arama sonucu dusen adaylar (zaten yazili olanlar)
+BILINMEYEN olculmemis girdiler + YON: asagi / yukari / iki-yonlu
 PENCERE    ne zaman sonuc belli olur
 ```
+
+*`BILINMEYEN` alani: ELENEN "zaten yazili"yi duserken, BILINMEYEN "hic
+olculmemis"i yazar. Ve YON zorunlu: bir bilinmeyen tahmini yalniz asagi
+cekebiliyorsa sunulan sayi UST SINIR'dir, bu acikca soylenir. Olculmus
+dogum: dort adayli kume sunuldu, karsi taraf "ikimizin de X'i olculmedi"
+dedi; dogruydu ve tek yonluydu -- kume dogruydu ama ust-sinir oldugunu
+soylememisti.*
 
 *`ELENEN` alani skill'in kalbi: **neyi tahmin ETMEDIGINI** yazmadan tahmin sunmak,
 hatirlamayi tahmin diye satmaktir.*
@@ -81,6 +90,21 @@ isaretle "buyuk ihtimalle hicbiri" secenegini KOY -- cikarsa o da bilgidir
 *Olculdu: iki turda alti tahmin uretildi, hicbiri tam tutmadi -- ama adaylardan biri
 dogru fikrin ta kendisine bitisikti. **Iska bile kume icinde bilgi tasir**; tek
 tahmin bunu yapamaz.*
+
+## 4b · SONUC SATIRI — kume cevap degildir
+
+Kume bir MODELDIR; okuyan kisi modelden cevabi kendi cikarmak zorunda
+kalmamali. Her tahmin turu, kumeden SONRA tek blokla biter:
+
+```
+SONUC     <tek cumle: en olasi aday, duz dille, sayi varsa sayiyla>
+EYLEM     <simdi ne yapilir / ne zaman ne yapilir -- en fazla iki madde>
+CURUME    <hangi gozlem gelirse bu sonuc gecersiz olur>
+```
+
+*Olculmus dogum: dort adayli, guvenli, pencereli tam bir kume sunuldu;
+operatorun cevabi "sonuc soylememissin ki, ne anlicaz bundan" oldu. Kume
+dogruydu, cevap yoktu. Kume SONUC satiri olmadan sunulmaz.*
 
 ## 5 · KAYIT — bu skill'in asil urunu
 
@@ -118,6 +142,10 @@ bu da bir olcumdur.***
 - TEK TAHMIN sunulmaz (bkz. §4) -- kume sunulur.
 - TAHMIN CERTIFY ETMEZ. Tahmin bir KAPI degildir: "model gecmez dedi" bir isi
   dusurmez; yalniz SIRA ve DIKKAT yonlendirir.
+- SONUCSUZ KUME YASAK. Kume sunup "hangisi?" sorusunu okuyana birakmak,
+  tahmin etmemektir.
+- YONSUZ BILINMEYEN YASAK. Olculmemis girdi varsa yonu yazilir; tek yonluyse
+  sayi "ust sinir" diye etiketlenir.
 - KANDIRILABILIR TAHMIN YASAK: tahmin bir kapiya baglanirsa uretici onu kandirmaya
   optimize olur. Tahmin SALT-ONERI kalir, onay-yetkisi disarida.
 ```
@@ -147,10 +175,11 @@ arizayi ogrenir ve kalicilastirir.*
 5  GUVEN      her adaya dusuk/orta/yuksek
 6  YANLISLA   her aday icin: bu neyle curur
 7  SUN        sirali, gerekceli
+7b SONUCLA    tek cumle sonuc + eylem; kume cevabin yerine gecmez
 8  KAYDET     GOZLEM.md'ye satir; sonuc gelince isabet sutunu doldurulur
 ```
 
 ---
 
-*graf: hatirlama-degil · karari-tahmin-et · kume-sun · guveni-yaz ·
+*graf: hatirlama-degil · karari-tahmin-et · kume-sun · sonucla · bilinmeyeni-yonuyle-yaz · guveni-yaz ·
 iskayi-degerlendir · kaydet-ki-model-ogrensin · tahmin-certify-etmez.*

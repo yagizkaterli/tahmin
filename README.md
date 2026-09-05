@@ -32,8 +32,12 @@ GÜVEN      düşük / orta / yüksek
 DAYANAK    neye bakarak? ("sezgi" meşru ama YAZILIR)
 YANLIŞLAR  bu tahmin neyle çürür? tek cümle
 ELENEN     arama sonucu düşen adaylar (zaten yazılı olanlar)
+BİLİNMEYEN ölçülmemiş girdiler + yön: aşağı / yukarı / iki yönlü
 PENCERE    ne zaman sonuç belli olur
 ```
+
+Küme sunulduktan sonra tek blok **SONUÇ / EYLEM / ÇÜRÜME** gelir. Küme bir
+modeldir, cevap değil; cevabı okuyana bıraktırmak tahmin etmemektir.
 
 `ELENEN` alanı skill'in kalbi: **neyi tahmin etmediğini** yazmadan tahmin sunmak,
 hatırlamayı tahmin diye satmaktır.
@@ -72,6 +76,8 @@ mkdir -p araclar/tahmin && touch araclar/tahmin/GOZLEM.md
 
 - **Sonradan tahmin yasak.** Sonuç belliyken yazılan şey kayıt değil anlatıdır.
 - **Güvensiz tahmin yasak.** Güven yazılmayan tahmin kalibre edilemez.
+- **Sonuçsuz küme yasak.** Dört aday sunup "hangisi?"yi okuyana bırakmak tahmin değildir.
+- **Yönsüz bilinmeyen yasak.** Ölçülmemiş girdi tek yönlüyse sayı "üst sınır"dır, öyle yazılır.
 - **Tahmin kapı değildir.** "Model geçmez dedi" bir işi düşürmez; yalnız sıra ve
   dikkat yönlendirir. Kapıya bağlanan tahmin, kandırılmaya optimize edilir.
 
